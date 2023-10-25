@@ -1,4 +1,5 @@
-const library = [];
+const library = ["a", "b", "c"];
+const display = document.getElementById("display");
 
 class Book {
   constructor(title, author, pages, read) {
@@ -18,4 +19,8 @@ class Book {
   }
 }
 
-
+display.addEventListener("click", function() {
+  for(let book of library) {
+    console.log(book);
+  }
+});
