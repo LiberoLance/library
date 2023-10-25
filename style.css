@@ -1,6 +1,6 @@
 * {
   margin: auto;
-  padding: auto;
+  padding: .5em;
 }
 
 .libc {
@@ -13,4 +13,8 @@
 .bold {
   color: ForestGreen;
   font-size: 1.5em;
+}
+
+.display {
+  border-radius: 10%;
 }
