@@ -2,3 +2,9 @@
   margin: auto;
   padding: auto;
 }
+
+.libc {
+  width: 1280px;
+  height: 720px;
+  background: BurlyWood;
+}
