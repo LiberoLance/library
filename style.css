@@ -3,6 +3,11 @@
   padding: .5em;
 }
 
+form {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
 .libc {
   width: 1280px;
   height: 720px;
