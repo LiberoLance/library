@@ -3,6 +3,10 @@
   padding: .5em;
 }
 
+#new-book {
+  border-radius: 10%;
+}
+
 form {
   display: grid;
   grid-template-columns: 1fr 1fr;
