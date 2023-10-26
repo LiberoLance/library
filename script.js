@@ -1,7 +1,8 @@
 //Dom selectors
 const library = ["a", "b", "c"];
-const display = document.getElementById("display");
+const newBook = document.getElementById("newBook");
 const bookc = document.getElementById("bookc");
+const bookForm = document.getElementById(book-form");
 
 //objects
 class Book {
@@ -23,9 +24,8 @@ class Book {
 }
 
 //event listeners
-display.addEventListener("click", function() {
-  for(let book of library) {
-  }
+newBook.addEventListener("click", function() {
+  bookForm.style.visbility = "visible";
 });
 
 //functions
