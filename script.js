@@ -1,8 +1,8 @@
 //Dom selectors
 const library = ["a", "b", "c"];
-const newBook = document.getElementById("newBook");
+const newBook = document.getElementById("new-book");
 const bookc = document.getElementById("bookc");
-const bookForm = document.getElementById(book-form");
+const bookForm = document.getElementById("book-form");
 
 //objects
 class Book {
@@ -25,7 +25,7 @@ class Book {
 
 //event listeners
 newBook.addEventListener("click", function() {
-  bookForm.style.visbility = "visible";
+  bookForm.style.visibility = "visible";
 });
 
 //functions
@@ -34,6 +34,3 @@ function addBook(title, author, pages, read) {
   library.push(thisBook);
 }
 
-function newBook() {
-  
-}
