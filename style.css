@@ -3,7 +3,7 @@
   padding: .5em;
 }
 
-#new-book {
+button {
   border-radius: 10%;
 }
 
@@ -19,7 +19,7 @@
 .libc {
   width: 1280px;
   height: 720px;
-  background: BurlyWood;
+  background: LightYellow;
   text-align: center;
 }
 
