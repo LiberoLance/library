@@ -56,7 +56,9 @@ showBooks.addEventListener("click", function() {
   const read = document.createElement('p');
   const changeReadStatus = document.createElement('button');
   const remove = document.createElement('button');
-
+  
+  
+  div.setAttribute('id', 'book');
   title.textContent = thisBook.title;
   author.textContent = thisBook.author;
   pages.textContent = thisBook.pages;
@@ -70,7 +72,7 @@ showBooks.addEventListener("click", function() {
   div.append(read);
   div.append(changeReadStatus);
   div.append(remove);
-
+  
   bookc.append(div);
 });
 
