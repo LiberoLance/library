@@ -23,6 +23,11 @@ button {
   text-align: center;
 }
 
+#book {
+  background: white;
+  margin: 4px;
+}
+
 .bold {
   color: ForestGreen;
   font-size: 1.5em;

@@ -48,17 +48,20 @@ addBook.addEventListener("click", function(e) {
 
 showBooks.addEventListener("click", function() {
   
-  const thisBook = library[0]; 
-  const div = document.createElement('div');
-  const title = document.createElement('p');
-  const author = document.createElement('p');
-  const pages = document.createElement('p');
-  const read = document.createElement('p');
-  const changeReadStatus = document.createElement('button');
-  const remove = document.createElement('button');
-  
-  
+  let index = library.length - 1;
+  let thisBook = library[0]; 
+  let div = document.createElement('div');
   div.setAttribute('id', 'book');
+  let title = document.createElement('p');
+  let author = document.createElement('p');
+  let pages = document.createElement('p');
+  let read = document.createElement('p');
+  read.setAttribute('id', 'read');
+  let changeReadStatus = document.createElement('button');
+  changeReadStatus.setAttribute('id', 'crs');
+  let remove = document.createElement('button');
+  remove.setAttribute('id', 'remove');
+  
   title.textContent = thisBook.title;
   author.textContent = thisBook.author;
   pages.textContent = thisBook.pages;
@@ -74,6 +77,21 @@ showBooks.addEventListener("click", function() {
   div.append(remove);
   
   bookc.append(div);
+
+  changeReadStatus.addEventListener('click', function() {
+    if(library[index].read == "true") {
+      library[index].read = 'false';
+      read.textContent = 'false';
+    }
+    else {
+      library[index].read = 'true';
+      read.textContent = 'true';
+    }
+  });
+  remove.addEventListener('click', function () {
+    library.pop();
+    div.remove();
+  });
 });
 
 //functions
@@ -81,5 +99,3 @@ function pushBook(title, author, pages, read) {
   const thisBook = new Book(title, author, pages, read);
   library.push(thisBook);
 }
-
-
