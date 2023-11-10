@@ -1,5 +1,8 @@
-//Dom selectors
+//global variables
 const library = [];
+let index = 0;
+
+//Dom selectors
 const newBook = document.getElementById("new-book");
 const bookc = document.getElementById("bookc");
 const bookForm = document.getElementById("book-form");
@@ -16,12 +19,12 @@ class Book {
     this.read = read;
   }
 
-  read() {
-    if(this.read) {
-      this.read = false;
+  changeRead() {
+    if(this.read == 'true') {
+      this.read = 'false';
     }
     else {
-      this.read = true;
+      this.read = 'true';
     }
   }
 }
@@ -38,6 +41,7 @@ addBook.addEventListener("click", function(e) {
    }
    else {
      pushBook(formInputs.title.value, formInputs.author.value, formInputs.pages.value, formInputs.read.value)
+     index++;
      formInputs.title.value = "";
      formInputs.author.value = "";
      formInputs.pages.value = "";
@@ -47,48 +51,50 @@ addBook.addEventListener("click", function(e) {
 });
 
 showBooks.addEventListener("click", function() {
+  let div;
+  let title;
+  let author;
+  let pages;
+  let read;
+  let changeReadStatus;
+  let remove;
   
-  let index = library.length - 1;
-  let thisBook = library[0]; 
-  let div = document.createElement('div');
-  div.setAttribute('id', 'book');
-  let title = document.createElement('p');
-  let author = document.createElement('p');
-  let pages = document.createElement('p');
-  let read = document.createElement('p');
-  read.setAttribute('id', 'read');
-  let changeReadStatus = document.createElement('button');
-  changeReadStatus.setAttribute('id', 'crs');
-  let remove = document.createElement('button');
-  remove.setAttribute('id', 'remove');
+  for(let thisBook of library) {
+    div = document.createElement('div');
+    div.setAttribute('id', 'book' + index);
+    title = document.createElement('p');
+    author = document.createElement('p');
+    pages = document.createElement('p');
+    read = document.createElement('p');
+    read.setAttribute('id', 'read');
+    changeReadStatus = document.createElement('button');
+    changeReadStatus.setAttribute('id', 'crs');
+    remove = document.createElement('button');
+    remove.setAttribute('id', 'remove');
   
-  title.textContent = thisBook.title;
-  author.textContent = thisBook.author;
-  pages.textContent = thisBook.pages;
-  read.textContent = thisBook.read;
-  changeReadStatus.textContent = 'Change Read Status';
-  remove.textContent = 'Remove Book'; 
+    title.textContent = thisBook.title;
+    author.textContent = thisBook.author;
+    pages.textContent = thisBook.pages;
+    read.textContent = thisBook.read;
+    changeReadStatus.textContent = 'Change Read Status';
+    remove.textContent = 'Remove Book'; 
 
-  div.append(title);
-  div.append(author);
-  div.append(pages);
-  div.append(read);
-  div.append(changeReadStatus);
-  div.append(remove);
+    div.append(title);
+    div.append(author);
+    div.append(pages);
+    div.append(read);
+    div.append(changeReadStatus);
+    div.append(remove);
   
-  bookc.append(div);
+    bookc.append(div);
+  }
 
   changeReadStatus.addEventListener('click', function() {
-    if(library[index].read == "true") {
-      library[index].read = 'false';
-      read.textContent = 'false';
-    }
-    else {
-      library[index].read = 'true';
-      read.textContent = 'true';
-    }
+    thisBook.changeRead();
+    read.textContent = thisBook.read;
   });
-  remove.addEventListener('click', function () {
+  remove.addEventListener('click', function (e) {
+    console.log(e);
     library.pop();
     div.remove();
   });
