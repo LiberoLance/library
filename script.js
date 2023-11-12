@@ -31,7 +31,7 @@ class Book {
 
 //event listeners
 newBook.addEventListener("click", function() {
-  bookForm.style.visibility = "visible";
+  addBookToLibrary();
 });
 
 addBook.addEventListener("click", function(e) {
@@ -68,7 +68,7 @@ showBooks.addEventListener("click", function() {
     read = document.createElement('p');
     read.setAttribute('id', 'read');
     changeReadStatus = document.createElement('button');
-    changeReadStatus.setAttribute('id', 'crs');
+    changeReadStatus.setAttribute('id', '' + index);
     remove = document.createElement('button');
     remove.setAttribute('id', 'remove');
   
@@ -87,21 +87,34 @@ showBooks.addEventListener("click", function() {
     div.append(remove);
   
     bookc.append(div);
-  }
 
-  changeReadStatus.addEventListener('click', function() {
-    thisBook.changeRead();
-    read.textContent = thisBook.read;
-  });
-  remove.addEventListener('click', function (e) {
-    console.log(e);
-    library.pop();
-    div.remove();
-  });
+    changeReadStatus.addEventListener('click', function() {
+      console.log(this);
+      //thisBook.changeRead();
+      //read.textContent = thisBook.read;
+    });
+    remove.addEventListener('click', function (e) {
+      console.log(e);
+      library.pop();
+      div.remove();
+    });
+  }
 });
 
 //functions
-function pushBook(title, author, pages, read) {
+function addBookToLibrary() {
+  const title = prompt('Enter the title of the book: ');
+  const author = prompt('Enter the book's author: ');
+  const pages = prompt('How many pages are there: ');
+  let read = prompt('Have you read the book before? y or n');
+  
+  if(read.toLowerCase() == 'y') {
+    read = true;
+  }
+  else {
+    read = false;
+  }
+
   const thisBook = new Book(title, author, pages, read);
   library.push(thisBook);
 }
