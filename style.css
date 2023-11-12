@@ -7,29 +7,19 @@ button {
   border-radius: 10%;
 }
 
-#book-form {
-  visibility: hidden;
-}
-
-#form-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-
 .libc {
   width: 1280px;
   height: 720px;
-  background: LightYellow;
   text-align: center;
 }
 
 #book {
-  background: white;
+  background: brown;
   margin: 4px;
 }
 
 .bold {
-  color: ForestGreen;
+  color: black;
   font-size: 1.5em;
 }
 
