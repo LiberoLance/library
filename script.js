@@ -44,13 +44,16 @@ function addBookToLibrary() {
   const pages = prompt('How many pages are there?');
   let read = prompt('Have you read the book before? y or n');
   
-  if(read.toLowerCase() == 'y') {
+  if(read != null && read.toLowerCase() == 'y') {
     read = true;
   }
   else {
     read = false;
   }
 
-  const thisBook = new Book(title, author, pages, read);
-  library.push(thisBook);
+  if(title != null && author != null && pages != null) {
+    const thisBook = new Book(title, author, pages, read);
+    library.push(thisBook);
+  }
+  console.log(library);
 }
